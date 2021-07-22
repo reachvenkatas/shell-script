@@ -1,6 +1,7 @@
 #!/bin/bash
-LOG=frontend
-mv $LOG /tmp/backup/$LOG_$(date +%F-%T).log
+LOG=/tmp/frontend.log
+#mv $LOG /tmp/backup/$LOG_$(date +%F-%T).log
+rm -f $LOG
 echo -e "Installing Nginx\t\t...\t\e[32mdone\e[0m"
 #Installing the NGinx and Redirecting the output to the log file
 yum install nginx -y >>$LOG
