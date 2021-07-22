@@ -16,7 +16,7 @@ fi
 #step 1:outputs from the commands should not display on the screen
 #step 2: validate the command executed fine or not($?)
 #STep 3: Need to check the script is running as root user id or not
-echo -e "Enabling the  Nginx\t\t\t..."
+echo -n -e "Enabling the  Nginx\t\t\t..."
 systemctl enable nginx &>>$LOG
 if  [ $? -eq 0 ]; then
   echo -e "\e[32mdone\e[0m"
@@ -25,7 +25,7 @@ else
   exit 1
 fi
 
-echo -e "Starting the  Nginx\t\t\t..."
+echo -n -e "Starting the  Nginx\t\t\t..."
 systemctl start nginx &>>$LOG
 if  [ $? -eq 0 ]; then
   echo -e "\e[32mdone\e[0m"
