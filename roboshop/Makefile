@@ -1,4 +1,4 @@
-help:	## Print this message
+help:			## Print this message
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 frontend:		## Install frontend component
 	@echo Installing frontend
@@ -20,5 +20,6 @@ shipping:		## Install shipping component
 	@echo Installing shipping
 user:			## Install user component
 	@echo Installing user
-
+databases:
+	mongodb redis mysql rabbitmq	## Install All databases
 
