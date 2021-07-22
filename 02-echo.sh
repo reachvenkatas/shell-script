@@ -1,3 +1,3 @@
 #! /bin/bash
 
-echo -e ""\e[31mHello" World\t welcome to the world\n"
+echo -e ""\e[31mHello\e[0m \e[32mWorld\e[0m welcome to the world\n"
