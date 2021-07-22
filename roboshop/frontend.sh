@@ -11,5 +11,5 @@ systemctl enable nginx &>>$LOG
 statusCheck $?
 
 PRINT "Starting the  Nginx"
-systemctll start nginx &>>$LOG
+systemctl start nginx &>>$LOG
 statusCheck $?
