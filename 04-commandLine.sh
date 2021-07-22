@@ -9,7 +9,7 @@ sample() {
 
 b=20
 echo -e "i am in the main function\n"
-echo "values of a=$a, b=$b, $* \n"
+echo -e "values of a=$a, b=$b, $* \n"
 sample
 a=100
 echo -e "values of a=$a, b=$b, $* \n"
