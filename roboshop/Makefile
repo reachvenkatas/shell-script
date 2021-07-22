@@ -6,11 +6,11 @@ cart:		## Install frontend component
 	@echo Installing cart
 catalouge:	## Install catalouge component
 	@echo Installing catalouge
-mongodb:			## Install mongodb component
+mongodb:		## Install mongodb component
 	@echo Installing mongodb
 mysql:		## Install mysql component
 	@echo Installing mysql
-payment:			## Install payment component
+payment:		## Install payment component
 	@echo Installing payment
 rabbitmq:	## Install rabbitmq component
 	@echo Installing rabbitmq
