@@ -25,7 +25,7 @@ else
   exit 1
 fi
 echo -n -e "Starting the  Nginx\t\t\t..."
-systemctl start nginx &>>$LOG
+systemctll start nginx &>>$LOG
 if  [ $? -eq 0 ]; then
   echo -e "\e[32mdone\e[0m"
 else
