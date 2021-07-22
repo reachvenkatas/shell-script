@@ -20,6 +20,5 @@ shipping:		## Install shipping component
 	@echo Installing shipping
 user:			## Install user component
 	@echo Installing user
-databases:
-	mongodb redis mysql rabbitmq	## Install All databases
+databases:	mongodb redis mysql rabbitmq	## Install All databases
 
