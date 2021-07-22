@@ -2,5 +2,8 @@ a=10
 echo ${a}
 b=20
 echo a = $b
-DATE=(date +%D)
+DATE=$(date +%D)
 echo -e "today date is ${DATE}"
+readonly b
+unset b
+echo ${b}
