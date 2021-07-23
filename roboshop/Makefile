@@ -19,7 +19,7 @@ redis:		## Install radis component
 shipping:	## Install shipping component
 	@echo Installing shipping
 user:		## Install user component
-	@echo Installing user
+	@bash user
 databases:	## Install All Databases
 databases:	mongodb redis mysql rabbitmq
 
