@@ -1,12 +1,8 @@
 #! /bin/bash
 source common.sh
 
-PRINT "yum rep"
-yum install epel-release yum-utils -y &>>$LOG
-statusCheck $?
-
 PRINT "Install redis repo"
-yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y &>>$LOG
+yum install epel-release yum-utils http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y &>>$LOG
 statusCheck $?
 
 PRINT "Install redis"
