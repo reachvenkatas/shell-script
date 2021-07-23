@@ -43,6 +43,6 @@ systemctl start catalogue &>>$LOG
 statusCheck $?
 
 PRINT "enable catalogue"
-sysystemctl enable catalogue &>>$LOG
+systemctl enable catalogue &>>$LOG
 statusCheck $?
 
