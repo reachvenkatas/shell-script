@@ -23,7 +23,7 @@ cd /usr/share/nginx/html &>>$LOG && rm -rf * &>>$LOG
 statusCheck $?
 
 PRINT "Exract HTDOCS files"
-unzip /tmp/frontend.zip &>>$LOG && mv frontend-main/* . &>>$LOG && mv static/* . &>>$LOG && rm -rf frontend-master static &>>$LOG
+unzip -o /tmp/frontend.zip &>>$LOG && mv frontend-main/* . &>>$LOG && mv static/* . &>>$LOG && rm -rf frontend-master static &>>$LOG
 statusCheck $?
 
 PRINT "Moves the conf file to nginx location"
