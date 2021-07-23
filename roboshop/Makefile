@@ -7,7 +7,7 @@ cart:		## Install frontend component
 catalouge:	## Install catalouge component
 	@echo Installing catalouge
 mongodb:		## Install mongodb component
-	@echo Installing mongodb
+	@bash mongodb.sh
 mysql:		## Install mysql component
 	@echo Installing mysql
 payment:		## Install payment component
