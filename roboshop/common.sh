@@ -23,6 +23,7 @@ PRINT() {
 }
 
 ### COMMON CODE FOR ALl the micro services ###
+
 NODEJS()  {
 PRINT "Installing nodejs"
 yum install nodejs make gcc-c++ -y &>>$LOG
