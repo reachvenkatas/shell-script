@@ -3,9 +3,9 @@ help:		## Print this message
 frontend:	## Install frontend component
 	@bash frontend.sh
 cart:		## Install frontend component
-	@echo Installing cart
+	@bash cart
 catalouge:	## Install catalouge component
-	@echo Installing catalouge
+	@bash catalouge.sh
 mongodb:		## Install mongodb component
 	@bash mongodb.sh
 mysql:		## Install mysql component
