@@ -10,7 +10,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mong
 statusCheck $?
 
 PRINT "Install Mongo & Start Service"
-yum install -y mongodb-org >>$LOG
+yum install -y mongodb-org &>>$LOG
 statusCheck $?
 
 #PRINT "update mongodb listen address"
