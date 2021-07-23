@@ -95,7 +95,7 @@ JAVA() {
 PYTHON3() {
   PRINT "Install Python3\t\t"
   yum install python36 gcc python3-devel -y &>>$LOG
-  STAT_CHECK $?
+  statusCheck $?
 
   ADD_APPLICATION_USER
   DOWNLOAD_APP_CODE
