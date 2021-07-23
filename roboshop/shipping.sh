@@ -2,4 +2,4 @@
 source common.sh
 
 COMPONENT=shipping
-NODEJS
+java
