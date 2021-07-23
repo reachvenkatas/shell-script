@@ -3,21 +3,21 @@ help:		## Print this message
 frontend:	## Install frontend component
 	@bash frontend.sh
 cart:		## Install frontend component
-	@bash cart
+	@bash cart.sh
 catalouge:	## Install catalouge component
 	@bash catalouge.sh
 mongodb:		## Install mongodb component
 	@bash mongodb.sh
 mysql:		## Install mysql component
-	@echo Installing mysql
+	@bash mysql.sh
 payment:		## Install payment component
-	@echo Installing payment
+	@bash payment.sh
 rabbitmq:	## Install rabbitmq component
-	@echo Installing rabbitmq
+	@bash rabbitmq.sh
 redis:		## Install radis component
 	@bash redis.sh
 shipping:	## Install shipping component
-	@echo Installing shipping
+	@bash shipping.sh
 user:		## Install user component
 	@bash user.sh
 databases:	## Install All Databases
