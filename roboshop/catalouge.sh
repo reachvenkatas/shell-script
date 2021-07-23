@@ -26,7 +26,7 @@ PRINT "Install nodeJS dependencies"
 cd /home/roboshop/catalogue && npm install --unsafe-perm &>>$LOG
 statusCheck $?
 
-PRINT"Fix Application Permissions"
+PRINT "Fix Application Permissions"
 chown roboshop:roboshop /home/roboshop -R &>>$LOG
 statusCheck $?
 
