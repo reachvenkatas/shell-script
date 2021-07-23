@@ -18,6 +18,6 @@ else
 fi
 }
 PRINT() {
-  echo -n -e "$1\t\t\t..."
+  echo -n -e "$1\t\t\\tt..."
 }
 
