@@ -13,7 +13,10 @@ PRINT "Install Mongo & Start Service"
 yum install -y mongodb-org &>>$LOG
 statusCheck $?
 
-#PRINT "update mongodb listen address"
+PRINT "update mongodb listen address"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+statusCheck $?
+
 #Update Liste IP address from 127.0.0.1 to 0.0.0.0 in config file
 #Config file: /etc/mongod.conf
 
