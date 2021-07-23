@@ -15,7 +15,7 @@ payment:		## Install payment component
 rabbitmq:	## Install rabbitmq component
 	@echo Installing rabbitmq
 redis:		## Install radis component
-	@echo Installing redis
+	@bash redis.sh
 shipping:	## Install shipping component
 	@echo Installing shipping
 user:		## Install user component
