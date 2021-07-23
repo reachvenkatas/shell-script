@@ -31,10 +31,9 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf &>>$LOG
 statusCheck $?
 
 PRINT "update the roboshop.conf file for reverse proxy"
-sed -i -e "/catalouge/ s/localhost/catalouge.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
+sed -i -e '/catalogue/ s/localhost/catalouge.roboshop.internal/' /etc/nginx/default.d/roboshop.conf
 statusCheck $?
 
-catalouge.roboshop.internal
 
 PRINT "ReStarting the  Nginx"
 systemctl restart nginx &>>$LOG
