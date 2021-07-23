@@ -63,14 +63,14 @@ SETUP_SYSTEMD() {
 NODEJS()  {
   PRINT "Install NodeJS\t\t"
   yum install nodejs make gcc-c++ -y &>>$LOG
-  STAT_CHECK $?
+  statusCheck $?
 
   ADD_APPLICATION_USER
   DOWNLOAD_APP_CODE
 
   PRINT "Install NodeJS Dependencies"
   cd /home/roboshop/${COMPONENT} && npm install --unsafe-perm &>>$LOG
-  STAT_CHECK $?
+  statusCheck $?
 
   PERM_FIX
   SETUP_SYSTEMD
@@ -79,14 +79,14 @@ NODEJS()  {
 JAVA() {
   PRINT "Install Maven\t\t"
   yum install maven -y &>>$LOG
-  STAT_CHECK $?
+  statusCheck $?
 
   ADD_APPLICATION_USER
   DOWNLOAD_APP_CODE
 
   PRINT "Compile Code\t\t"
   cd /home/roboshop/${COMPONENT} && mvn clean package &>>$LOG &&  mv target/shipping-1.0.jar shipping.jar
-  STAT_CHECK $?
+  statusCheck $?
 
   PERM_FIX
   SETUP_SYSTEMD
