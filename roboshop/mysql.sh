@@ -18,3 +18,26 @@ statusCheck $?
 PRINT "Start MySQL Service\t"
 systemctl enable mysqld &>>$LOG  && systemctl start mysqld &>>$LOG
 statusCheck $?
+
+PRINT "Reset MySQL Root Password"
+DEFAULT_PASSWORD=$(grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}')
+echo "show databases;" | mysql -uroot -pRoboShop@1 &>>$LOG
+if [ $? -ne 0 ]; then
+  echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD} &>>$LOG
+fi
+statusCheck $?
+
+PRINT "Uninstall MySQL Password Policy"
+echo SHOW PLUGINS | mysql -uroot -pRoboShop@1 2>>$LOG | grep -i validate_password &>>$LOG
+if [ $? -eq 0 ]; then
+  echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1 &>>$LOG
+fi
+statusCheck $?
+
+PRINT "Download Schema\t\t"
+curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip" &>>$LOG
+statusCheck $?
+
+PRINT "Load Schema\t\t"
+cd /tmp && unzip -o mysql.zip &>>$LOG && cd mysql-main && mysql -uroot -pRoboShop@1 <shipping.sql &>>$LOG
+statusCheck $?
