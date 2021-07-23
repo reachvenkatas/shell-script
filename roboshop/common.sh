@@ -24,53 +24,72 @@ PRINT() {
 
 ### COMMON CODE FOR ALl the micro services ###
 
+ADD_APPLICATION_USER() {
+  PRINT "Add RoboShop Application User"
+  id roboshop &>>$LOG
+  if [ $? -ne 0 ]; then
+    useradd roboshop &>>$LOG
+  fi
+  statusCheck $?
+}
+
+DOWNLOAD_APP_CODE() {
+  PRINT "Download Application Code"
+  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
+  statusCheck $?
+
+  PRINT "Extract Downloaded Code\t"
+  cd /home/roboshop && unzip -o  /tmp/${COMPONENT}.zip &>>$LOG  && rm -rf ${COMPONENT} && mv ${COMPONENT}-main ${COMPONENT}
+  statusCheck $?
+}
+
+PERM_FIX() {
+  PRINT "Fix Application Permissions"
+  chown roboshop:roboshop /home/roboshop -R &>>$LOG
+  statusCheck $?
+}
+
+SETUP_SYSTEMD() {
+  PRINT "Setup SystemD file\t"
+  sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" -e "s/REDIS_ENDPOINT/redis.roboshop.internal/" -e "s/MONGO_ENDPOINT/mongodb.roboshop.internal/" -e "s/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/" -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' -e 's/CARTHOST/cart.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/' -e 's/AMQPHOST/rabbitmq.roboshop.internal/'  /home/roboshop/${COMPONENT}/systemd.service && mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+  statusCheck $?
+
+  PRINT "Start ${COMPONENT} Service\t"
+  systemctl daemon-reload &>>$LOG && systemctl restart ${COMPONENT} &>>$LOG && systemctl enable ${COMPONENT} &>>$LOG
+  statusCheck $?
+}
+
+
 NODEJS()  {
-PRINT "Installing nodejs"
-yum install nodejs make gcc-c++ -y &>>$LOG
-statusCheck $?
+  PRINT "Install NodeJS\t\t"
+  yum install nodejs make gcc-c++ -y &>>$LOG
+  STAT_CHECK $?
 
-PRINT "Add Roboshop user"
-# have to check the user already exist or not
-id roboshop &>>$LOG
-if [ $? -ne 0 ];  then
-useradd roboshop &>>$LOG
-fi
-statusCheck $?
+  ADD_APPLICATION_USER
+  DOWNLOAD_APP_CODE
 
-PRINT "Download downloaded code"
-curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
-statusCheck $?
+  PRINT "Install NodeJS Dependencies"
+  cd /home/roboshop/${COMPONENT} && npm install --unsafe-perm &>>$LOG
+  STAT_CHECK $?
 
-PRINT "Extract downloaded code"
-cd /home/roboshop && unzip -o /tmp/${COMPONENT}.zip &>>$LOG && rm -rf ${COMPONENT} && mv ${COMPONENT}-main ${COMPONENT}
-cd /home/roboshop/${COMPONENT} && npm install --unsafe-perm &>>$LOG
-statusCheck $?
+  PERM_FIX
+  SETUP_SYSTEMD
+}
 
-PRINT "Install nodeJS dependencies"
-cd /home/roboshop/${COMPONENT} && npm install --unsafe-perm &>>$LOG
-statusCheck $?
+JAVA() {
+  PRINT "Install Maven\t\t"
+  yum install maven -y &>>$LOG
+  STAT_CHECK $?
 
-PRINT "Fix Application Permissions"
-chown roboshop:roboshop /home/roboshop -R &>>$LOG
-statusCheck $?
+  ADD_APPLICATION_USER
+  DOWNLOAD_APP_CODE
 
-PRINT "Update SystemD File"
-sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" -e "s/REDIS_ENDPOINT/redis.roboshop.internal/" -e "s/MONGO_ENDPOINT/mongodb.roboshop.internal/" -e "s/CATALOGUE_ENDPOINT/catalouge.roboshop.internal/" /home/roboshop/${COMPONENT}/systemd.service &&
-mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>>$LOG
-statusCheck $?
+  PRINT "Compile Code\t\t"
+  cd /home/roboshop/${COMPONENT} && mvn clean package &>>$LOG &&  mv target/shipping-1.0.jar shipping.jar
+  STAT_CHECK $?
 
-PRINT "daemon-reload"
-systemctl daemon-reload &>>$LOG
-statusCheck $?
-
-PRINT "start service"
-systemctl start ${COMPONENT} &>>$LOG
-statusCheck $?
-
-PRINT "enable service"
-systemctl enable ${COMPONENT} &>>$LOG
-statusCheck $?
-
+  PERM_FIX
+  SETUP_SYSTEMD
 }
 
 
