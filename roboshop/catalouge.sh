@@ -30,10 +30,19 @@ PRINT "Fix Application Permissions"
 chown roboshop:roboshop /home/roboshop -R &>>$LOG
 statusCheck $?
 
+PRINT "Update SystemD File"
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal' /home/roboshop/catalogue/systemd.service && v /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$LOG
+statusCheck $?
 
-#PRINT "Extract downloaded code"
+PRINT "daemon-reload"
+systemctl daemon-reload &>>$LOG
+statusCheck $?
 
-# mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
-# systemctl daemon-reload
-# systemctl start catalogue
-# systemctl enable catalogue
+PRINT "start catalogue"
+systemctl start catalogue &>>$LOG
+statusCheck $?
+
+PRINT "enable catalogue"
+ysystemctl enable catalogue &>>$LOG
+statusCheck $?
+
