@@ -31,7 +31,7 @@ chown roboshop:roboshop /home/roboshop -R &>>$LOG
 statusCheck $?
 
 PRINT "Update SystemD File"
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal' /home/roboshop/catalogue/systemd.service && v /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$LOG
+sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal" /home/roboshop/catalogue/systemd.service && v /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$LOG
 statusCheck $?
 
 PRINT "daemon-reload"
