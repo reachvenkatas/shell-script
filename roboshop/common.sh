@@ -38,7 +38,7 @@ fi
 statusCheck $?
 
 PRINT "Download downloaded code"
-curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/$({COMPONENT}/archive/main.zip" &>>$LOG
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
 statusCheck $?
 
 PRINT "Extract downloaded code"
