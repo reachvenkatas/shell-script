@@ -68,6 +68,7 @@ statusCheck $?
 PRINT "enable service"
 systemctl enable ${COMPONENT} &>>$LOG
 statusCheck $?
+
 }
 
 
