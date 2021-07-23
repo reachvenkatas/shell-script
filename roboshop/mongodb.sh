@@ -9,7 +9,7 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
 statusCheck $?
 
-PRINT "Install Mongo & Start Service"
+PRINT "Install MongoDB "
 yum install -y mongodb-org &>>$LOG
 statusCheck $?
 
@@ -17,23 +17,19 @@ PRINT "update mongodb listen address"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 statusCheck $?
 
-#Update Liste IP address from 127.0.0.1 to 0.0.0.0 in config file
-#Config file: /etc/mongod.conf
+PRINT "enable  MongoDB"
+systemctl enable mongod &>>$LOG
+statusCheck $?
 
-#then restart the service
+PRINT "Start  MongoDB"
+systemctl start mongod &>>$LOG
+statusCheck $?
 
-# systemctl restart mongod
-#Every Database needs the schema to be loaded for the application to work.
-#Download the schema and load it.
+PRINT "Download the MongoDB schema"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>$LOG
+statusCheck $?
 
-# curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
+PRINT "Load the Schema"
+cd /tmp && unzip mongodb.zip && cd mongodb-main && mongo < catalogue.js && mongo < users.js
+statusCheck $?
 
-# cd /tmp
-# unzip mongodb.zip
-# cd mongodb-main
-# mongo < catalogue.js
-# mongo < users.js
-
-#PRINT "Install Mongo & Start Service"
-# systemctl enable mongod >>$LOG
-# systemctl start mongod >>$LOG
