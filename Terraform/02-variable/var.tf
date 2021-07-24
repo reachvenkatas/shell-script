@@ -2,5 +2,5 @@ variable "sample" {
   default = "Hello World"
 }
 output "output" {
-  value   = "var.sample"
+  value   = var.sample
 }
