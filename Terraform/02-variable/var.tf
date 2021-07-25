@@ -38,3 +38,8 @@ output "train2" {
 output "train3" {
   value = var.train3["aws"]
 }
+
+variable "FRUITS" {}
+output "FRUITS" {
+  value= var.FRUITS
+}
