@@ -14,8 +14,8 @@ resource "aws_security_group" "allow_ssh" {
 
   ingress {
     description      = "SSH"
-    from_port        = 22
-    to_port          = 22
+    from_port        = 100
+    to_port          = 200
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
@@ -27,7 +27,7 @@ resource "aws_security_group" "allow_ssh" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "allow_tls"
+    Name = "allow_ssh"
   }
 }
 
