@@ -39,7 +39,9 @@ output "train3" {
   value = var.train3["aws"]
 }
 
-variable "FRUITS" {}
+variable "FRUITS" {
+  default = "I am good"
+}
 output "FRUITS" {
   value = var.FRUITS
 }
