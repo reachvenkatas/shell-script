@@ -2,7 +2,7 @@ variable "sample" {
   default = "Hello World"
 }
 variable "sample1" {
-  dafault   = 10
+  default   = 10
 }
 variable "sample2" {
   default   = true
