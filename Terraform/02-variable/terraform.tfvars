@@ -1,1 +1,0 @@
-FRUITS=[ "APPLE" , "Banana"]
