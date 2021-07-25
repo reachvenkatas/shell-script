@@ -45,10 +45,10 @@ output "FRUITS" {
 }
 
 variable "COUNRTY" {}
-output "COUNRTY"
-{
+output "COUNRTY" {
   value = var.COUNRTY
 }
+
 
 variable "SEASON" {}
 output "SEASON" {
