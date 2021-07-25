@@ -10,3 +10,31 @@ variable "sample2" {
 output "output" {
   value   = " var.sample , var.sample1 , var.sample2 ,  ${var.sample}, ${var.sample} , ${var.sample}  "
 }
+
+variable "train" {
+  default =  "devops"
+}
+variable "train1" {
+  default = [ devops, aws, azure ]
+}
+variable "train3" {
+  default = {
+    aws     = "6am"
+    devops  = 10
+    azure   = true
+  }
+}
+
+output "train" {
+  value = var.train
+}
+output "train1" {
+  value = var.train1[0]
+}
+output "train2" {
+  value = var.train1[1]
+}
+
+output "train3" {
+  value = var.train3["aws"]
+}
