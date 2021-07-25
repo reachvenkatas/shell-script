@@ -44,9 +44,9 @@ output "FRUITS" {
   value= var.FRUITS
 }
 
-variable "COUNRTY" {}
-output "COUNRTY" {
-  value = var.COUNRTY
+variable "C" {}
+output "C" {
+  value = var.C
 }
 
 variable "SEASON" {}
