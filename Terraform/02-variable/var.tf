@@ -55,3 +55,11 @@ variable "SEASON" {}
 output "SEASON" {
   value = var.SEASON
 }
+
+resource "aws_instance" "sample" {
+  ami = ""
+  instance_type = ""
+}
+output "publcip" {
+  value = aws_instance.sample.public_ip
+}
