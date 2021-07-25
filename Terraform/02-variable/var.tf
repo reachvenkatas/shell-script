@@ -15,7 +15,7 @@ variable "train" {
   default =  "devops"
 }
 variable "train1" {
-  default = [ devops, aws, azure ]
+  default = [ "devops", "aws", 10 ]
 }
 variable "train3" {
   default = {
