@@ -32,7 +32,7 @@ output "train1" {
   value = var.train1[0]
 }
 output "train2" {
-  value = var.train1[1]
+  value = var.train1
 }
 
 output "train3" {
