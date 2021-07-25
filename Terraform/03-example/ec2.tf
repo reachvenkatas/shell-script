@@ -7,12 +7,12 @@
 // }
 //}
 
-resource "aws_security_group" "allow_tls" {
-  name          = "allow_tls"
-  description   = "Allow TLS"
+resource "aws_security_group" "allow_ssh" {
+  name          = "allow_ssh"
+  description   = "allow ssh"
 
   ingress {
-    description      = "TLS from VPC"
+    description      = "SSH"
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
@@ -25,15 +25,16 @@ resource "aws_security_group" "allow_tls" {
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
-
   tags = {
     Name = "allow_tls"
   }
 }
 
-output "sg-attributes" {
-  value = aws_security_group.allow_tls
-}
 provider "aws" {
   region = "us-east-1"
 }
+
+output "sg-attributes" {
+  value = aws_security_group.allow_ssh
+}
+
