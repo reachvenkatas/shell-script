@@ -1,5 +1,5 @@
 resource "aws_spot_instance_request" "cheap_worker" {
-  count                 = LENGTH
+  count                 = local.LENGTH
   ami                   = "ami-074df373d6bafa625"
   vpc_security_group_ids = ["sg-08ef1bf4f4c3a2e31"]
   spot_price            = "0.03"
@@ -13,7 +13,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
 }
 
 resource "aws_ec2_tag" "example" {
-  count                 = LENGTH
+  count                 = local.LENGTH
   resource_id           = element(aws_spot_instance_request.cheap_worker.*.spot_instance_id,count.index)
   key                   = "Name"
   value                 = element(var.COMPONENTS,count.index)
@@ -22,7 +22,7 @@ resource "aws_ec2_tag" "example" {
 
 
 resource "null_resource" "run_shell_script" {
-  count = LENGTH
+  count = local.LENGTH
   provisioner "remote-exec" {
     connection {
       host = element(aws_spot_instance_request.cheap_worker.*.public_ip,count.index)
