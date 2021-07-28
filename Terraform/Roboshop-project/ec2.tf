@@ -45,7 +45,6 @@ resource "null_resource" "run_shell_script" {
     ]
   }
 }
-
 locals {
   LENGTH  = length(var.COMPONENTS)
 }
