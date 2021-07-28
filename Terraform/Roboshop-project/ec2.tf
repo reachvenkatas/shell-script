@@ -19,9 +19,7 @@ resource "aws_ec2_tag" "example" {
   value                 = element(var.COMPONENTS,count.index)
 }
 
-locals {
-  LENGTH  = Length(var.COMPONENTS)
-}
+
 
 resource "null_resource" "run_shell_script" {
   count = LENGTH
@@ -39,4 +37,8 @@ resource "null_resource" "run_shell_script" {
       "sudo make ${element(var.COMPONENTS,count.index)}"
     ]
   }
+}
+
+locals {
+  LENGTH  = length(var.COMPONENTS)
 }
