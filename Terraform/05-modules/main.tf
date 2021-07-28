@@ -8,7 +8,7 @@ module "ec2"  {
 }
 
 output "Public_IP" {
-  value = "module.ec2.ec2-attr"
+  value = module.ec2.ec2-attr
 }
 
 provider "aws" {
