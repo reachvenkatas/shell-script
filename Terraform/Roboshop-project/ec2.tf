@@ -32,7 +32,7 @@ resource "null_resource" "run_shell_script" {
       password = "DevOps321"
     }
 
-    command = [
+    inline = [
       "cd /home/centos",
       "git clone https://github.com/reachvenkatas/shell-script.git",
       "cd shell-script/roboshop",
