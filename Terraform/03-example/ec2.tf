@@ -44,9 +44,10 @@ output "ec2-attr" {
 
 terraform {
   backend "s3" {
-    bucket = "venkata-devops"
-    key    = "sample/terraform.tfstate"
-    region = "us-east-1"
+    bucket          = "venkata-devops"
+    key             = "sample/terraform.tfstate"
+    region          = "us-east-1"
+    dynamodb_table  = "terraform"
   }
 }
 
