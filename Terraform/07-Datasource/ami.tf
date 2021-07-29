@@ -19,5 +19,5 @@ output "image"  {
 }
 
 output "image1"  {
-  value = data.aws_ec2_spot_price.example
+  value = data.aws_ec2_spot_price.example.spot_price
 }
