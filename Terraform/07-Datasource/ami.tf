@@ -15,7 +15,7 @@ data "aws_ec2_spot_price" "example" {
 }
 
 output "image"  {
-  value = data.aws_ami.example.id
+  value = aws_ami.example.id
 }
 
 output "spotprice"  {
