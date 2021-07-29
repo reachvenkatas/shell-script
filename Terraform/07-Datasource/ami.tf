@@ -18,6 +18,6 @@ output "image"  {
   value = data.aws_ami.example.id
 }
 
-output "image1"  {
+output "spotprice"  {
   value = data.aws_ec2_spot_price.example.spot_price
 }
