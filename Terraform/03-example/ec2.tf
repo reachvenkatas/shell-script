@@ -73,7 +73,7 @@ terraform {
     }
     provisioner "remote-exec" {
       connection {
-        host                  = ec2-attr
+        host                  = "ec2-attr"
         user                  = "centos"
         password              = "DevOps321"
       }
