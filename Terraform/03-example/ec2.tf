@@ -74,7 +74,7 @@ output "ec2-attr" {
     }
     provisioner "remote-exec" {
       connection {
-        host                  = "aws_instance.sample.private_ip"
+        host                  = "${aws_instance.sample.private_ip}"
         user                  = "centos"
         password              = "DevOps321"
       }
