@@ -51,4 +51,36 @@ terraform {
   }
 }
 
+//data "template_file" "cool_script" {
+//  template = "${file("${path.module}/script.sh")}"
+//}
+//  vars {
+//    my_cool_var = "${var.my_cool_var}"
+//  }
+//}
 
+//resource "null_resource" "script" {
+
+ // # Trigger when the script when variables change
+ // triggers = {
+ //   my_trigger = "${var.my_cool_var}"
+ //   script_sha = "${sha256(file("${path.module}/script.sh"))}"
+ // }
+
+  resource "null_resource" "run_shell_script" {
+    triggers = {
+      policy_sha1 = "${sha1(file("1.sh"))}"
+    }
+    provisioner "remote-exec" {
+      connection {
+        host                  = aws_instance.sample.public_ip
+        user                  = "centos"
+        password              = "DevOps321"
+      }
+      inline = [
+        "cd /home/centos",
+        "sh 1.sh",
+        "sh 2.sh"
+      ]
+    }
+  }
