@@ -1,4 +1,4 @@
-resource "aws_security_group" "allow_ssh" {
+resource "aws_security_group" "allow_ssh1" {
   name          = "allow_ssh"
   description   = "allow ssh"
 
@@ -17,11 +17,11 @@ resource "aws_security_group" "allow_ssh" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "allow_ssh"
+    Name = "allow_ssh1"
   }
 }
 
 output "sg-attributes" {
-  value = aws_security_group.allow_ssh.id
+  value = aws_security_group.allow_ssh1.id
 }
 
