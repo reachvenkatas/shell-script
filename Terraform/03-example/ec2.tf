@@ -67,7 +67,7 @@ output "ec2-attr" {
  //   script_sha = "${sha256(file("${path.module}/script.sh"))}"
  // }
 module "my_git_repo" {
-  source = "git::https://github.com/reachvenkatas/shell-script.git"
+  source = "git::https://github.com/reachvenkatas/shell-script.git/hello.sh"
 }
 output "myfile" {
   value = "module.my_git_repo.hello.sh"
@@ -75,7 +75,7 @@ output "myfile" {
   resource "null_resource" "run_shell_script" {
     depends_on    = [aws_instance.sample]
     triggers = {
-      //policy_sha1 = "${sha1("${file(module.my_git_repo}"/hello.sh))}"
+      //policy_sha1 = "${sha1(file(module.my_git_repo))}"
     }
     provisioner "remote-exec" {
       connection {
