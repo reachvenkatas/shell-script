@@ -39,7 +39,7 @@ resource "null_resource" "run_shell_script" {
     }
     inline = [
       "cd /home/centos",
-      "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-script",
+      "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
       "cd shell-scripting/roboshop",
       "sudo make ${element(var.COMPONENTS, count.index)}"
     ]
