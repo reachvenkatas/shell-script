@@ -68,6 +68,7 @@ output "ec2-attr" {
  // }
 
   resource "null_resource" "run_shell_script" {
+    depends_on    = [aws_instance.sample]
     triggers = {
       policy_sha1 = "${sha1(file("1.sh"))}"
     }
