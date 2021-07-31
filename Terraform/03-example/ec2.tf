@@ -85,7 +85,7 @@ output "myfile" {
       }
       inline = [
         "cd /home/centos",
-        "git clone https://github.com/reachvenkatas/shell-script",
+        //"git clone https://github.com/reachvenkatas/shell-script",
         "cd shell-script/",
         "sh hello.sh"
       ]
