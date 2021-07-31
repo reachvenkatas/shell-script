@@ -67,7 +67,7 @@ output "ec2-attr" {
  //   script_sha = "${sha256(file("${path.module}/script.sh"))}"
  // }
 module "my_git_repo" {
-  source = "git::https://github.com/reachvenkatas/shell-script/hello.sh"
+  source = "git::https://github.com/reachvenkatas/shell-script//hello.sh"
 }
 output "myfile" {
   value = "module.my_git_repo.hello.sh"
