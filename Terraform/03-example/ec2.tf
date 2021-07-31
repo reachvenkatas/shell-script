@@ -73,14 +73,13 @@ terraform {
     }
     provisioner "remote-exec" {
       connection {
-        host                  = aws_instance.sample.public_ip
+        host                  = ec2-attr
         user                  = "centos"
         password              = "DevOps321"
       }
       inline = [
         "cd /home/centos",
-        "sh 1.sh",
-        "sh 2.sh"
+        "sh 1.sh"
       ]
     }
   }
