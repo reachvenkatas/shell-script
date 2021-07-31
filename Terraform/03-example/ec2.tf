@@ -87,7 +87,7 @@ output "myfile" {
         "cd /home/centos",
         //"git clone https://github.com/reachvenkatas/shell-script",
         //"cd shell-scri",
-        "sh hello.sh"
+        "sh shell-script/hello.sh"
       ]
     }
   }
