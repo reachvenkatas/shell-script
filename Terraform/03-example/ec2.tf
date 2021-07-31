@@ -73,7 +73,7 @@ terraform {
     }
     provisioner "remote-exec" {
       connection {
-        host                  = "ec2-attr"
+        host                  = "aws_instance.sample.public_ip"
         user                  = "centos"
         password              = "DevOps321"
       }
