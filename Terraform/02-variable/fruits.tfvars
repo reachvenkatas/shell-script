@@ -1,0 +1,1 @@
+FRUITS=["RED" , "YELLOW"]
