@@ -80,8 +80,8 @@ output "ec2-attr" {
       }
       inline = [
         "cd /home/centos",
-        "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
-        "sh shell-scripting/Terraform/03-example/1.sh"
+        "git clone https://github.com/reachvenkatas/shell-script",
+        "sh shell-script/Terraform/03-example/1.sh"
       ]
     }
   }
