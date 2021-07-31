@@ -81,7 +81,8 @@ output "ec2-attr" {
       inline = [
         "cd /home/centos",
         "git clone https://github.com/reachvenkatas/shell-script",
-        "sh shell-script/Terraform/03-example/1.sh"
+        "cd shell-script/Terraform/03-example/",
+        "sh 1.sh"
       ]
     }
   }
