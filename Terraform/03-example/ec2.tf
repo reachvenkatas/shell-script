@@ -42,14 +42,14 @@ output "ec2-attr" {
   value = aws_instance.sample.public_ip
 }
 
-terraform {
-  backend "s3" {
-    bucket          = "venkata-devops"
-    key             = "sample/terraform.tfstate"
-    region          = "us-east-1"
-    dynamodb_table  = "terraform"
-  }
-}
+//terraform {
+//  backend "s3" {
+//    bucket          = "venkata-devops"
+//    key             = "sample/terraform.tfstate"
+//    region          = "us-east-1"
+//    dynamodb_table  = "terraform"
+//  }
+//}
 
 //data "template_file" "cool_script" {
 //  template = "${file("${path.module}/script.sh")}"
