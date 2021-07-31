@@ -75,7 +75,7 @@ output "myfile" {
   resource "null_resource" "run_shell_script" {
     depends_on    = [aws_instance.sample]
     triggers = {
-      policy_sha1 = "${sha1(file(module.my_git_repo))}"
+      policy_sha1 = "${sha1(file(module.my_git_repo.hello.sh))}"
     }
     provisioner "remote-exec" {
       connection {
