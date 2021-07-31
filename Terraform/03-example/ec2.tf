@@ -66,11 +66,16 @@ output "ec2-attr" {
  //   my_trigger = "${var.my_cool_var}"
  //   script_sha = "${sha256(file("${path.module}/script.sh"))}"
  // }
-
+module "my_git_repo" {
+  source = "git::https://github.com/reachvenkatas/shell-script.git"
+}
+output "myfile" {
+  value = "module.my_git_repo.hello.sh"
+}
   resource "null_resource" "run_shell_script" {
     depends_on    = [aws_instance.sample]
     triggers = {
-      policy_sha1 = "${sha1(file("1.sh"))}"
+      policy_sha1 = "${sha1(file(module.my_git_repo.hello.sh))}"
     }
     provisioner "remote-exec" {
       connection {
@@ -81,8 +86,8 @@ output "ec2-attr" {
       inline = [
         "cd /home/centos",
         "git clone https://github.com/reachvenkatas/shell-script",
-        "cd shell-script/Terraform/03-example/",
-        "sh 1.sh"
+        "cd shell-script/",
+        "sh hello.sh"
       ]
     }
   }
