@@ -80,7 +80,7 @@ output "ec2-attr" {
       }
       inline = [
         "cd /home/centos",
-        "sh 1.sh"
+        "sh ./1.sh"
       ]
     }
   }
