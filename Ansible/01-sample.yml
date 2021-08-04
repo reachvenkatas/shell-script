@@ -1,10 +1,10 @@
-- name: Sample play
+- name: Sample play1
   hosts: all
   tasks:
     debug:
       msg: Hello
 
-- name: Sample play
+- name: Sample play2
   hosts: all
   tasks:
     - name: Print Debug Msg
