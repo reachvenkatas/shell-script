@@ -2,13 +2,13 @@
   hosts: all
   tasks:
     - name: Print Debug Msg
-      ansible.builtin.debug
+      ansible.builtin.debug:
         msg: Hello
 
 - name: Sample play
   hosts: all
   tasks:
     - name: Print Debug Msg
-      ansible.builtin.debug
+      ansible.builtin.debug:
       msg: Bye
 
