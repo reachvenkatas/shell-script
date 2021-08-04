@@ -1,9 +1,8 @@
 - name: Sample play
   hosts: all
   tasks:
-    - name: Print Debug Msg
-      debug:
-        msg: Hello
+    debug:
+      msg: Hello
 
 - name: Sample play
   hosts: all
