@@ -4,6 +4,6 @@
     URL: google.com
   tasks:
     - name: print a variable
-      dbg:
+      debug:
         msg: "URL = {{URL}}"
 
