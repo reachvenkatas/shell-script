@@ -1,6 +1,4 @@
-- name: install Package
-  tasks:
-    - name: install nginx
-      ansible.builtin.yum:
-        name: nginx
-        state: present
+- name: install nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: present
