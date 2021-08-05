@@ -1,5 +1,5 @@
 - name: Demo on Variabls
-  host: all
+  hosts: all
   vars:
     URL: google.com
   tasks:
