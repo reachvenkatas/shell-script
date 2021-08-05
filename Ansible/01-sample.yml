@@ -10,11 +10,6 @@
     - name: Print Bye
       ansible.builtin.debug:
         msg: Bye
-- name: Sample play3
-  hosts: all
-  tasks:
-    - name: Print Debug Msg
-      ansible.builtin.debug:
-        msg: Bye
+
 
 
