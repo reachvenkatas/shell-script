@@ -36,6 +36,19 @@
       debug:
         msg: "hostname = {{ansible_facts}}"
 
+- name: Demo on facts
+  hosts: all
+  tasks:
+    - name: Run uptime command
+      ansible.builtin.shell: uptime
+      regitster: out
+
+    -name: print register output
+     debug:
+       msg: "Register output: {{out}}"
+
+
+
 
 
 
