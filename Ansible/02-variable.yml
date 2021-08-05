@@ -18,5 +18,11 @@
     - name: print a variable
       debug:
         msg: "URL = {{URL}}"
+    - name: print a task level
+        debug:
+          msg: "URL = {{URL}}"
+        vars:
+          URL: task.google.com
+
 
 
