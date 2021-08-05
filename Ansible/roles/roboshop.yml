@@ -1,5 +1,13 @@
-- name: roboshop project
-  hosts: all
+- name: roboshop frontend project
+  hosts: FRONTEND
   become: yes
   roles:
     - name: frontend
+
+- name: roboshop MONGODB project
+  hosts: MONGODB
+  become: yes
+  roles:
+    - name: mongodb
+
+
