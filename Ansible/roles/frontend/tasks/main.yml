@@ -14,11 +14,7 @@
     dest: /tmp
     remote_src: yes
 
-- name: Copy the extracted content
-  ansible.builtin.copy:
-    src: /tmp/frontend-main/static/
-    dest: /usr/share/nginx/html/
-    remote_src: yes
+
 
 
 
