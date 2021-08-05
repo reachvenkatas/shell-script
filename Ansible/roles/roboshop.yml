@@ -1,0 +1,4 @@
+- name: roboshop project
+  hosts: all
+  roles:
+    - name: frontend
