@@ -33,7 +33,7 @@
   tasks:
     - name : print host name
       debug:
-        msg: "hostname = {{ansible_fqdn"}
+        msg: "hostname = {{ansible_fqdn}}"
 
 
 
