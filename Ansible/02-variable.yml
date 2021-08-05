@@ -6,10 +6,16 @@
     - name: print a variable
       debug:
         msg: "URL = {{URL}}"
-
     - name: print task level
       vars:
         URL: task.google.com
+      debug:
+        msg: "URL = {{URL}}"
+
+- name: Demo on Variabls
+  hosts: all
+  tasks:
+    - name: print a variable
       debug:
         msg: "URL = {{URL}}"
 
