@@ -45,7 +45,7 @@
 
     - name: print register output
       ansible.builtin.debug:
-        msg: "Register output: {{out}}"
+        msg: "Register output: {{out.stdout}}"
 
 
 
