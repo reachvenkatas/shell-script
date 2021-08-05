@@ -2,7 +2,6 @@ resource "aws_spot_instance_request" "cheap_worker" {
   count                 = local.LENGTH
   ami                   = "ami-074df373d6bafa625"
   vpc_security_group_ids = ["sg-08ef1bf4f4c3a2e31"]
-
   spot_price            = "0.03"
   spot_type             = "persistent"
   instance_interruption_behavior = "stop"
