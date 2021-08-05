@@ -28,5 +28,13 @@
       vars:
         URL: task.google.com
 
+- name: Demo on facts
+  hosts: all
+  tasks:
+    - name : print host name
+      debug:
+        msg: "hostname = {{ansible_fqdn"}
+
+
 
 
