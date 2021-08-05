@@ -1,5 +1,4 @@
 - name: install Package
-  hosts: all
   tasks:
     - name: install nginx
       ansible.builtin.yum:
