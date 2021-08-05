@@ -50,7 +50,7 @@
 - name: Demo on role
   hosts: all
   roles:
-    - demo
+    - name: demo
 
 
 
