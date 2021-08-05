@@ -16,6 +16,8 @@
   hosts: all
   vars_files:
     - vars.yml
+  vars:
+    URL: google.com
   tasks:
     - name: print a variable
       debug:
