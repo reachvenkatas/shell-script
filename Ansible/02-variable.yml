@@ -7,3 +7,9 @@
       debug:
         msg: "URL = {{URL}}"
 
+    - name: print task level
+      debug:
+        msg: "URL = {{URL}}"
+      vars:
+        URL: task.google.com
+
