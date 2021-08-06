@@ -8,7 +8,7 @@
     path: /usr/share/nginx/html
     state: absent
 
-- name: ownload and extract frontend content
+- name: download and extract frontend content
   include_role:
     name: common
     tasks_from: download.yml
