@@ -7,9 +7,9 @@
       tags:
         - ubuntu
         - redhat
-    - name: Print Centod
-        debug:
-          msg: Centos
-        tags:
-          - centos
-          - redhat
+    - name: Print Centos
+      debug:
+        msg: Centos
+      tags:
+        - centos
+        - redhat
