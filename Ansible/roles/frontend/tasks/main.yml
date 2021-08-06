@@ -1,34 +1,35 @@
-- name: install nginx
+- name: Install nginx
   ansible.builtin.yum:
     name: nginx
-    state: present
+    state: installed
 
 - name: Remove old content
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
 
-- name: download and extract frontend content
+- name: Download and Extract Frontend content
   include_role:
     name: common
-    tasks_from: download.yml
+    tasks_from: download
 
 - name: Copy the extracted content
-  ansible.builtin.copy:
+  copy:
     src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-- name: Copy the roboshop.conf file from controle node to front end server
-  ansible.builtin.copy:
+- name: Copy roboshop configuration file
+  copy:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-- name: Restart service Nginx
-  ansible.builtin.service:
+- name: Restart Nginx Service
+  systemd:
     name: nginx
     state: restarted
     enabled: yes
+
 
 
 
