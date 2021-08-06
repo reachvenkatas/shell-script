@@ -13,7 +13,7 @@
     - name: mongodb
 
 - name: roboshop frontend project
-  hosts: CATALOUGE
+  hosts: CATALOGUE
   become: yes
   tags: catalouge
   roles:
