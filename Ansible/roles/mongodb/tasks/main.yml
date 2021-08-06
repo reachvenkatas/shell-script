@@ -4,7 +4,7 @@
     dest: /etc/yum.repos.d/mongo.repo
 
 - name: Install MongoDB
-  yum:
+  ansible.builtin.yum:
     name: mongodb-org
     state: present
 
