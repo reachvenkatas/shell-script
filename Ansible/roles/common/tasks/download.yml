@@ -1,2 +1,3 @@
-- name: Include task list in play
-  include_tasks: download-from-github.yml
+- name: Download from Github
+  include_tasks:
+    file: download-from-github.yml
