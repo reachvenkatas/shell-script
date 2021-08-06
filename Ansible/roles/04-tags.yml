@@ -4,3 +4,12 @@
     - name: Print Ubuntu
       debug:
         msg: Ubuntu
+      tags:
+        - ubuntu
+        - redhat
+    - name: Print Centod
+        debug:
+          msg: Centos
+        tags:
+          - centos
+          - redhat
