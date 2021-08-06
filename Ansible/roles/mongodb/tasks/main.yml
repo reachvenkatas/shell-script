@@ -1,0 +1,37 @@
+- name: Copy the roboshop.conf file from controle node to front end server
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: install mongodb
+  ansible.builtin.yum:
+    name: mongodb-org
+    state: present
+
+- name: Update MongoDB Listen address
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Start Mongodb Service
+  ansible.builtin.systemd:
+    name: mongodb
+    state: started
+    enabled: yes
+
+- name: Download and extract mongodb Schema
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/mongodb/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: Load Catalouge Schema
+  community.mongodb.mongodb_shell:
+    file: "/tmp/catalogue.js"
+    idempotent: yes
+
+- name: Load User Schema
+  community.mongodb.mongodb_shell:
+    file: "/tmp/users.js"
+    idempotent: yes

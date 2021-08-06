@@ -4,5 +4,11 @@
   roles:
     - name: frontend
 
+- name: roboshop frontend project
+  hosts: MONGODB
+  become: yes
+  roles:
+    - name: mongodb
+
 
 
