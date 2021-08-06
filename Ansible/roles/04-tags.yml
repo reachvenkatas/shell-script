@@ -1,9 +1,6 @@
 - name: Demo on tags task
   hosts: localhost
   tasks:
-    - name: Ubuntu
-      debg:
-        msg: Ubuntu
-    - name: centos
+    - name: Print Ubuntu
       debug:
-        msg: Centos
+        msg: Ubuntu
