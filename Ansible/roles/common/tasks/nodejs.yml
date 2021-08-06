@@ -1,0 +1,23 @@
+- name: install nginx
+  ansible.builtin.yum:
+    name: ["nodejs", "make", "gcc-c++"]
+    state: present
+
+- name: Add the roboshop user
+  ansible.builtin.user:
+    name: roboshop
+    comment: John Doe
+    uid: 1040
+    group: admin
+
+- name: Include task list in play
+  include_tasks:
+    file: download.yml
+
+- name: Copy the extracted content
+  ansible.builtin.copy:
+    src: /tmp/catalogue-main/
+    dest: /home/roboshop/catalogue
+    remote_src: yes
+
+

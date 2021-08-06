@@ -1,0 +1,4 @@
+- name: download and extract catalouge content
+  include_role:
+    name: common
+    tasks_from: nodejs
