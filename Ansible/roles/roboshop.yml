@@ -15,9 +15,9 @@
 - name: roboshop frontend project
   hosts: CATALOGUE
   become: yes
-  tags: catalouge
+  tags: catalogue
   roles:
-    - name: catalouge
+    - name: catalogue
 
 
 
