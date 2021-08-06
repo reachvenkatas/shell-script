@@ -25,12 +25,10 @@
     name: common
     tasks_from: download.yml
 
-- name: Load Catalouge Schema
+- name: Load Schemas
   community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/catalogue.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
-
-- name: Load User Schema
-  community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/users.js"
-    idempotent: yes
+  loop:
+    - catalouge
+    - user
