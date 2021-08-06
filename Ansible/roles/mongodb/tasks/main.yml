@@ -18,6 +18,7 @@
   ansible.builtin.systemd:
     name: mongod
     state: started
+
 - name: Download and extract mongodb content
   include_role:
     name: common
