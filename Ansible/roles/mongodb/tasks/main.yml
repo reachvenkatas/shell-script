@@ -1,5 +1,5 @@
-- name: Copy the roboshop.conf file from controle node to front end server
-  ansible.builtin.copy:
+- name: Create a MongoDB repo
+  copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
