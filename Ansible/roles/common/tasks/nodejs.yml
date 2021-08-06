@@ -32,7 +32,7 @@
 
 - name: Start Mongodb Service
   ansible.builtin.systemd:
-    name: mongod
+    name: catalogue
     state: restarted
     enabled: yes
     daemon_reload: yes
