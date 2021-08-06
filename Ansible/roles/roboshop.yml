@@ -1,14 +1,14 @@
 - name: roboshop frontend project
   hosts: FRONTEND
-  tags: frontend
   become: yes
+  tags: frontend
   roles:
     - name: frontend
 
 - name: roboshop frontend project
   hosts: MONGODB
-  tags: mongodb
   become: yes
+  tags: mongodb
   roles:
     - name: mongodb
 
