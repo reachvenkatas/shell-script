@@ -19,6 +19,12 @@
     owner: roboshop
     group: roboshop
 
+- name: Update packages based on package.json to their latest version.
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}/
+    state: present
+  become_user: roboshop
+
 
 
 
