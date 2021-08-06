@@ -20,6 +20,18 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
+- name: Copy the roboshop.conf file from controle node to front end server
+  ansible.builtin.copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Restart service Nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+    enabled : yes
+
+
 
 
 
