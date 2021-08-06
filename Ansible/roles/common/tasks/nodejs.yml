@@ -25,7 +25,17 @@
     state: present
   become_user: roboshop
 
+- name: Copy the systemd file
+  ansible.builtin.copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
+- name: Start Mongodb Service
+  ansible.builtin.systemd:
+    name: mongod
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
 
 
 
