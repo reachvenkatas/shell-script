@@ -6,9 +6,6 @@
 - name: Add the roboshop user
   ansible.builtin.user:
     name: roboshop
-    comment: John Doe
-    uid: 1040
-    group: admin
 
 - name: Include task list in play
   include_tasks:
