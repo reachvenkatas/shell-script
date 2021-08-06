@@ -13,7 +13,7 @@
 
 - name: Copy the extracted content
   ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}-main/
+    src: /tmp/{{COMPONENT}}-main/
     dest: /home/roboshop/{{COMPONENT}}/
     remote_src: yes
 
