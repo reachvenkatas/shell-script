@@ -26,5 +26,12 @@
   roles:
     - name: redis
 
+- name: roboshop user project
+  hosts: USER
+  become: yes
+  tags: user
+  roles:
+    - name: user
+
 
 
