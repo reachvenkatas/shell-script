@@ -25,7 +25,7 @@
     group: roboshop
 
 - name: Running mvn clean
-  shell: "mvn clean package" && mv target/shipping-1.0.jar shipping.jar
+  shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
   args:
     chdir: /home/roboshop/{{COMPONENT}}
 
