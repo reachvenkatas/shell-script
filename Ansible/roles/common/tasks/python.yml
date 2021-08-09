@@ -34,13 +34,13 @@
 #  debug:
 #    msg: {{app_user}}
 
-- name: modify uid in paymemt.ini
+- name: modify uid in {{COMPONENT}}.ini
   lineinfile:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: "^uid"
     line: "uid = {{app_user.uid}}"
 
-- name: modify gid in paymemt.ini
+- name: modify gid in {{COMPONENT}}.ini
   lineinfile:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: "^gid"
