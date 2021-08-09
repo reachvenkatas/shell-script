@@ -33,5 +33,12 @@
   roles:
     - name: user
 
+- name: roboshop cart project
+  hosts: CART
+  become: yes
+  tags: cart
+  roles:
+    - name: cart
+
 
 
