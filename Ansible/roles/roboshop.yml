@@ -19,5 +19,12 @@
   roles:
     - name: catalogue
 
+- name: roboshop redis project
+  hosts: redis
+  become: yes
+  tags: redis
+  roles:
+    - name: redis
+
 
 
