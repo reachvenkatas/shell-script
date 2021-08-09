@@ -20,7 +20,7 @@
     - name: catalogue
 
 - name: roboshop redis project
-  hosts: redis
+  hosts: REDIS
   become: yes
   tags: redis
   roles:
