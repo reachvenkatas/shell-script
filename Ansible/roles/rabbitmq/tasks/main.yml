@@ -15,7 +15,7 @@
   systemd:
     name: rabbitmq-server
     enabled: yes
-    status: started
+    state: started
 
 - name: Create App User in Roboshop
   community.rabbitmq.rabbitmq_user:
