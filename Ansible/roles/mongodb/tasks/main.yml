@@ -33,6 +33,7 @@
     - catalogue
     - users
 
+
 #- name: Load Schema
 #  community.mongodb.mongodb_shell:
 #    file: "/tmp/mongodb-main/{{item.name}}.js"
