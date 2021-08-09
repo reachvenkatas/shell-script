@@ -53,7 +53,7 @@
     name: common
     tasks_from: download
 
-- name: Load mysdl Schema
+- name: Load mysql Schema
   community.mysql.mysql_db:
     state: import
     name: all
