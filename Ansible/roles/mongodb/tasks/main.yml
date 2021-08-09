@@ -20,7 +20,7 @@
     name: mongod
     state: started
 
-- name: Download and Extract Frontend content
+- name: Download and Extract mongodb content
   include_role:
     name: common
     tasks_from: download
