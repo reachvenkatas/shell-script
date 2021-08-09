@@ -38,7 +38,7 @@
   register: out
 
 - name: Reset mysql password
-  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{out.stdout}
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{out.stdout}}
 
 
 
