@@ -29,6 +29,11 @@
 #  debug:
 #    msg: {{app_user}}
 
+- name: Install Python Depencencies
+  pip:
+    requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
+    executable: pip3
+
 - name: Update INI file - USER ID
   lineinfile:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
