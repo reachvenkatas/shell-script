@@ -6,6 +6,7 @@
 - name: Add roboshop application user
   ansible.builtin.user:
     name: roboshop
+  register: app_user
 
 - name: Download GitHub
   include_tasks:
@@ -33,6 +34,22 @@
   copy:
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
+
+#- name: print app_user info
+#  debug:
+#    msg: {{app_user}}
+
+- name: modify uid in paymemt.ini
+  replace:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: "^uid"
+    replace: "uid = {{app_user.uid}}"
+
+- name: modify gid in paymemt.ini
+  replace:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: "^gid"
+    replace: "gid = {{app_user.group}}"
 
 - name: Restart {{COMPONENT}} Service
   systemd:
