@@ -1,0 +1,31 @@
+- name: install Maven
+  ansible.builtin.yum:
+    name: maven
+    state: present
+
+- name: Add roboshop application user
+  ansible.builtin.user:
+    name: roboshop
+
+- name: Download GitHub
+  include_tasks:
+    file: download.yml
+
+- name: Delete Old App Code
+  file:
+     path: /home/roboshop/{{COMPONENT}}
+     state: absent
+
+- name: Copy the extracted content
+  copy:
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}/
+    remote_src: yes
+    owner: roboshop
+    group: roboshop
+
+- name: Running mvn clean
+  shell: "mvn clean package" && mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /home/roboshop/{{COMPONENT}}
+

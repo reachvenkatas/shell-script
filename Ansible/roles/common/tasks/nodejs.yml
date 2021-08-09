@@ -11,6 +11,11 @@
   include_tasks:
     file: download.yml
 
+- name: Delete Old App Code
+  file:
+     path: /home/roboshop/{{COMPONENT}}
+     state: absent
+
 - name: Copy the extracted content
   copy:
     src: /tmp/{{COMPONENT}}-main/
