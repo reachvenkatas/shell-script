@@ -25,26 +25,26 @@
     owner: roboshop
     group: roboshop
 
-- name: Update SystemD Configuration
-  copy:
-    src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-
 #- name: print app_user info
 #  debug:
 #    msg: {{app_user}}
 
-- name: modify uid in {{COMPONENT}}.ini
+- name: Update INI file - USER ID
   lineinfile:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: "^uid"
     line: "uid = {{app_user.uid}}"
 
-- name: modify gid in {{COMPONENT}}.ini
+- name: Update INI file - GROUP ID
   lineinfile:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: "^gid"
     line: "gid = {{app_user.group}}"
+
+- name: Update SystemD Configuration
+  copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
 - name: Restart {{COMPONENT}} Service
   systemd:
