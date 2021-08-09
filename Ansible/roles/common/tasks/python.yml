@@ -1,9 +1,9 @@
-- name: Install NodeJS
+- name: Install Python
   yum:
-    name: [ "nodejs", "make", "gcc-c++" ]
+    name: ["python36", "gcc", "python3-devel"]
     state: present
 
-- name: Add RoboShop Application User
+- name: Add roboshop application user
   ansible.builtin.user:
     name: roboshop
 
@@ -24,11 +24,10 @@
     owner: roboshop
     group: roboshop
 
-- name: Install specified {{COMPONENT}} requirements
-  pip:
-    requirements: /home/roboshop/{{COMPONENT}}/my_app/requirements.txt
-    executable: pip3
-  become: True
+- name: Running mvn clean
+  shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /home/roboshop/{{COMPONENT}}
 
 - name: Update SystemD Configuration
   copy:
@@ -41,7 +40,4 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
-
-
-
 
