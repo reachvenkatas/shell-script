@@ -40,5 +40,12 @@
   roles:
     - name: cart
 
+- name: roboshop MYSQL project
+  hosts: MYSQL
+  become: yes
+  tags: mysql
+  roles:
+    - name: mysql
+
 
 
