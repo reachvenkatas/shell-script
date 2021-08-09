@@ -14,4 +14,15 @@
     enabled: yes
     state: started
 
+- name: Check the default password
+  shell: echo "show databases;" | mysql -uroot -pRoboShop@1
+  register: default_mysql_check
+
+- name: Grab default Password
+  shell: grep 'A temporary password' /var/log/mysqld.log  | awk '{print $NF}'
+  register: out
+
+- name: Check the default password
+
+
 
