@@ -20,7 +20,7 @@
 - name: Create App User in Roboshop
   community.rabbitmq.rabbitmq_user:
     user: roboshop
-    pass: administrator
+    pass: roboshop123
     permissions:
       - vhost: /
         configure_priv: .*
