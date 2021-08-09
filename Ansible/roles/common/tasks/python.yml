@@ -49,6 +49,7 @@
 - name: Restart {{COMPONENT}} Service
   systemd:
     name: "{{COMPONENT}}"
-    state: restarted
     enabled: yes
+    state: started
+
 
