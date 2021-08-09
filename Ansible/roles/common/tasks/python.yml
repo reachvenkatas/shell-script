@@ -50,6 +50,6 @@
   systemd:
     name: "{{COMPONENT}}"
     enabled: yes
-    state: started
+    state: restarted
 
 
