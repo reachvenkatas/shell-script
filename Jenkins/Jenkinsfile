@@ -12,36 +12,56 @@
 //   }
 // }
 
+
+
+// pipeline {
+//   agent any
+//
+//   stages {
+//     stage('JAVA node') {
+//       agent {
+//         label 'JAVA'
+//       }
+//     steps {
+//       sh 'echo hello'
+//     }
+//   }
+//     stage('NODEJS node') {
+//       agent {
+//         label 'NODEJS'
+//       }
+//       steps {
+//         sh 'echo hey'
+//       }
+//       post {
+//         always {
+//           sh ' echo NODEJS'
+//         }
+//       }
+//     }
+//   }
+//   post {
+//
+//     always {
+//      sh 'echo master'
+//     }
+//   }
+// }
+
+
 pipeline {
   agent any
-
-  stages {
-    stage('JAVA node') {
-      agent {
-        label 'JAVA'
-      }
-    steps {
-      sh 'echo hello'
-    }
+  enivironment{
+    DEMO_URL = "google.com"
   }
-    stage('NODEJS node') {
-      agent {
-        label 'NODEJS'
+  stages {
+    stage('one') {
+      enivironment{
+        DEMO_URL = "yahoo.com"
       }
       steps {
-        sh 'echo hey'
+        sh 'echo ${DEMO_URL}'
       }
-      post {
-        always {
-          sh ' echo NODEJS'
-        }
-      }
-    }
-  }
-  post {
-
-    always {
-     sh 'echo master'
     }
   }
 }
