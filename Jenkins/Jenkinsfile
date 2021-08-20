@@ -13,7 +13,7 @@
 // }
 
 pipeline {
-  agent none
+  agent all
 
   stages {
     stage('JAVA node') {
@@ -29,7 +29,7 @@ pipeline {
         label 'NODEJS'
       }
       steps {
-        sh 'echo hello'
+        sh 'echo hey'
       }
     }
   }
