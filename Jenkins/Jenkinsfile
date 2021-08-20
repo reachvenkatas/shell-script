@@ -62,9 +62,8 @@ pipeline {
       }
       steps {
         sh 'echo ${DEMO_URL}'
-        echo "${SSH_USER}"
+        echo "${SSH_USR}"
         echo "${SSH_PSW}"
       }
     }
   }
-}
