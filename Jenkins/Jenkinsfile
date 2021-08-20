@@ -33,7 +33,7 @@ pipeline {
       }
       post {
         always {
-          sh 'printing on NodeJS'
+          sh ' echo NODEJS'
         }
       }
     }
@@ -41,7 +41,7 @@ pipeline {
   post {
 
     always {
-     sh 'printing on master'
+     sh 'echo master'
     }
   }
 }
