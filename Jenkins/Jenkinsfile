@@ -1,12 +1,35 @@
+// pipeline {
+//   agent {
+//     node { label 'Agent1'}
+//   }
+//
+//   stages {
+//     stage('one') {
+//       steps {
+//         sh 'echo hello ; echo hey'
+//       }
+//     }
+//   }
+// }
+
 pipeline {
-  agent {
-    node { label 'Agent1'}
-  }
+  agent none
 
   stages {
-    stage('one') {
+    stage('JAVA node') {
+      agent {
+        label 'JAVA'
+      }
+    steps {
+      sh 'echo hello'
+    }
+  }
+    stage('NODEJS node') {
+      agent {
+        label 'NODEJS'
+      }
       steps {
-        sh 'echo hello ; echo hey'
+        sh 'echo hello'
       }
     }
   }
