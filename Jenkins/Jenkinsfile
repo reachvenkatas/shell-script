@@ -13,7 +13,7 @@
 // }
 
 pipeline {
-  agent all
+  agent any
 
   stages {
     stage('JAVA node') {
