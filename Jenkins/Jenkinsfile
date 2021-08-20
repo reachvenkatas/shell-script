@@ -53,6 +53,7 @@ pipeline {
   agent any
   environment {
     DEMO_URL = "google.com"
+    SSH = credentials('CENTOS_SSH')
   }
   stages {
     stage('one') {
@@ -61,6 +62,8 @@ pipeline {
       }
       steps {
         sh 'echo ${DEMO_URL}'
+        echo "$(SSH_USER)"
+        echo "$(SSH_PSW)"
       }
     }
   }
