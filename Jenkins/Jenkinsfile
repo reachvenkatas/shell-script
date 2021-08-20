@@ -51,12 +51,12 @@
 
 pipeline {
   agent any
-  enivironment{
+  enivironment {
     DEMO_URL = "google.com"
   }
   stages {
     stage('one') {
-      enivironment{
+      enivironment {
         DEMO_URL = "yahoo.com"
       }
       steps {
