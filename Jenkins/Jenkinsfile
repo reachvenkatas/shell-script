@@ -31,10 +31,10 @@ pipeline {
       steps {
         sh 'echo hey'
       }
-    }
-    post {
-      always {
-        sh 'printing on NodeJS'
+      post {
+        always {
+          sh 'printing on NodeJS'
+        }
       }
     }
   }
