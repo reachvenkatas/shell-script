@@ -1,0 +1,13 @@
+pipeline {
+  agent {
+    node { label 'agent1'}
+  }
+
+  stages {
+    stage('one') {
+      steps {
+        sh 'echo hello'
+      }
+    }
+  }
+}
