@@ -19,6 +19,7 @@ pipeline {
         echo "${Terraform_USR}"
         echo "${Terraform_PSW}"
       }
+    }
 
     stage('Terraform INIT') {
       steps {
