@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    node { label 'Agent1'}
+    node { label 'master'}
   }
 
   options {
