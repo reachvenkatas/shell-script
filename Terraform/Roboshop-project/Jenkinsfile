@@ -15,7 +15,7 @@ pipeline {
 
     stage('Terraform INIT') {
       steps {
-        sh 'cd  Terraform/Roboshop-project; terraform init'
+        sh 'cd  Terraform/Roboshop-project; ls ; terraform init'
       }
     }
 
@@ -26,6 +26,7 @@ pipeline {
       steps {
         sh '''
           cd Terraform/Roboshop-project
+          ls
           terraform apply -auto-approve
         '''
       }
@@ -38,6 +39,7 @@ pipeline {
       steps {
         sh '''
           cd Terraform/Roboshop-project
+          ls
           terraform destroy -auto-approve
         '''
       }
