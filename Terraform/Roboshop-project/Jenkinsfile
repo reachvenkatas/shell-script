@@ -1,8 +1,10 @@
 pipeline {
   agent {
-    node { label 'master'}
+    node { label 'Agent1'}
   }
-
+  environment {
+    SSH = credentials('Terraform')
+  }
   options {
     ansiColor('xterm')
   }
@@ -12,6 +14,11 @@ pipeline {
   }
 
   stages {
+    stage('one') {
+      steps {
+        echo "${Terraform_USR}"
+        echo "${Terraform_PSW}"
+      }
 
     stage('Terraform INIT') {
       steps {
