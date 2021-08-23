@@ -16,8 +16,8 @@ pipeline {
   stages {
     stage('one') {
       steps {
-        echo "${Terraform_USR}"
-        echo "${Terraform_PSW}"
+        echo "${SSH_USR}"
+        echo "${SSH_PSW}"
       }
     }
 
